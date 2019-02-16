@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/home0" android:duration="20"/>
+    <item android:drawable="@drawable/home1" android:duration="20"/>
+    <item android:drawable="@drawable/home2" android:duration="20"/>
+    <item android:drawable="@drawable/home3" android:duration="20"/>
+    <item android:drawable="@drawable/home4" android:duration="20"/>
+    <item android:drawable="@drawable/home5" android:duration="20"/>
+    <item android:drawable="@drawable/home6" android:duration="20"/>
+    <item android:drawable="@drawable/home7" android:duration="20"/>
+    <item android:drawable="@drawable/home8" android:duration="20"/>
+    <item android:drawable="@drawable/home9" android:duration="20"/>
+    <item android:drawable="@drawable/home10" android:duration="20"/>
+    <item android:drawable="@drawable/home11" android:duration="20"/>
+    <item android:drawable="@drawable/home12" android:duration="20"/>
+    <item android:drawable="@drawable/home13" android:duration="20"/>
+    <item android:drawable="@drawable/home14" android:duration="20"/>
+</animation-list>

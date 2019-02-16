@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FakeTieba</string>
+    <string name="bottom_tab_home">首页</string>
+    <string name="bottom_tab_enterform">进吧</string>
+    <string name="bottom_tab_message">消息</string>
+    <string name="bottom_tab_person">我的</string>
+    <string name="post_type_text">文字</string>
+    <string name="post_type_photograph">拍摄</string>
+    <string name="post_type_image">相册</string>
+    <string name="post_type_live">直播</string>
+</resources>

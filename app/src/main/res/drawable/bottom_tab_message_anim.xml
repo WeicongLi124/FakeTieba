@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/message0" android:duration="20"/>
+    <item android:drawable="@drawable/message1" android:duration="20"/>
+    <item android:drawable="@drawable/message2" android:duration="20"/>
+    <item android:drawable="@drawable/message3" android:duration="20"/>
+    <item android:drawable="@drawable/message4" android:duration="20"/>
+    <item android:drawable="@drawable/message5" android:duration="20"/>
+    <item android:drawable="@drawable/message6" android:duration="20"/>
+    <item android:drawable="@drawable/message7" android:duration="20"/>
+    <item android:drawable="@drawable/message8" android:duration="20"/>
+    <item android:drawable="@drawable/message9" android:duration="20"/>
+    <item android:drawable="@drawable/message10" android:duration="20"/>
+    <item android:drawable="@drawable/message11" android:duration="20"/>
+    <item android:drawable="@drawable/message12" android:duration="20"/>
+    <item android:drawable="@drawable/message13" android:duration="20"/>
+    <item android:drawable="@drawable/message14" android:duration="20"/>
+    <item android:drawable="@drawable/message15" android:duration="20"/>
+    <item android:drawable="@drawable/message16" android:duration="20"/>
+    <item android:drawable="@drawable/message17" android:duration="20"/>
+    <item android:drawable="@drawable/message18" android:duration="20"/>
+    <item android:drawable="@drawable/message19" android:duration="20"/>
+    <item android:drawable="@drawable/message20" android:duration="20"/>
+    <item android:drawable="@drawable/message21" android:duration="20"/>
+    <item android:drawable="@drawable/message22" android:duration="20"/>
+    <item android:drawable="@drawable/message23" android:duration="20"/>
+    <item android:drawable="@drawable/message24" android:duration="20"/>
+    <item android:drawable="@drawable/message25" android:duration="20"/>
+    <item android:drawable="@drawable/message26" android:duration="20"/>
+    <item android:drawable="@drawable/message27" android:duration="20"/>
+    <item android:drawable="@drawable/message28" android:duration="20"/>
+
+</animation-list>

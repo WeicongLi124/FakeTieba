@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/person0" android:duration="20"/>
+    <item android:drawable="@drawable/person1" android:duration="20"/>
+    <item android:drawable="@drawable/person2" android:duration="20"/>
+    <item android:drawable="@drawable/person3" android:duration="20"/>
+    <item android:drawable="@drawable/person4" android:duration="20"/>
+    <item android:drawable="@drawable/person5" android:duration="20"/>
+    <item android:drawable="@drawable/person6" android:duration="20"/>
+    <item android:drawable="@drawable/person7" android:duration="20"/>
+    <item android:drawable="@drawable/person8" android:duration="20"/>
+    <item android:drawable="@drawable/person9" android:duration="20"/>
+    <item android:drawable="@drawable/person10" android:duration="20"/>
+    <item android:drawable="@drawable/person11" android:duration="20"/>
+    <item android:drawable="@drawable/person12" android:duration="20"/>
+    <item android:drawable="@drawable/person13" android:duration="20"/>
+    <item android:drawable="@drawable/person14" android:duration="20"/>
+    <item android:drawable="@drawable/person15" android:duration="20"/>
+    <item android:drawable="@drawable/person16" android:duration="20"/>
+    <item android:drawable="@drawable/person17" android:duration="20"/>
+
+</animation-list>

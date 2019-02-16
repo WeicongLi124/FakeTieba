@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <LinearLayout
+        android:id="@+id/main_home_ll"
+        style="@style/BottomTabLayout">
+
+        <ImageView
+            android:id="@+id/main_home_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/home0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_tab_home"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_enterform_ll"
+        style="@style/BottomTabLayout">
+
+        <ImageView
+            android:id="@+id/main_enterform_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/enterforum0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_tab_enterform"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/main_post_btn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/home_add_btn_bg" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/add" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_message_ll"
+        style="@style/BottomTabLayout">
+
+        <ImageView
+            android:id="@+id/main_messgae_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/message0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_tab_message"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_person_ll"
+        style="@style/BottomTabLayout">
+
+        <ImageView
+            android:id="@+id/main_person_img"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/person0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_tab_person"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>
