@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="1.5dp"
         android:layout_above="@id/main_bottom_ly"
-        android:background="@color/main_bottom_tab_top" />
+        android:background="@color/colorBottomTabLine" />
 
     <LinearLayout
         android:id="@+id/main_bottom_ly"

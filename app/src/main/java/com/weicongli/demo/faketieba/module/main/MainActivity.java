@@ -19,9 +19,8 @@ import com.weicongli.demo.faketieba.module.bar.BarFragment;
 import com.weicongli.demo.faketieba.module.home.HomeFragment;
 import com.weicongli.demo.faketieba.module.message.MessageFragment;
 import com.weicongli.demo.faketieba.module.person.PersonFragment;
-import com.weicongli.demo.faketieba.other.FBaseActivity;
 
-public class MainActivity extends FBaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 底部导航栏
      */

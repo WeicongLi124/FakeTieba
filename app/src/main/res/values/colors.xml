@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="home_add_btn">#00B0DC</color>
-    <color name="main_bottom_tab_top">#E3E3E3</color>
+    <color name="colorHomePostBtn">#00B0DC</color>
+    <color name="colorBottomTabLine">#E3E3E3</color>
+    <color name="colorTextOther">#5F5F60</color>
+
+    <color name="colorPersonDivider">#F5F5F5</color>
 </resources>

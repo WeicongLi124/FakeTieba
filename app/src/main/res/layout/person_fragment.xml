@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
     <include
         android:id="@+id/person_actionbar"
-        layout="@layout/person_actionbar"/>
+        layout="@layout/person_actionbar" />
+
     <View
-        android:background="@color/main_bottom_tab_top"
-        android:layout_below="@id/person_actionbar"
+        android:id="@+id/person_line"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="PERSON"
-        android:textSize="20sp" />
-</RelativeLayout>
+        android:layout_height="0.5dp"
+        android:background="@color/colorPersonDivider" />
+
+    <ListView
+        android:id="@+id/person_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

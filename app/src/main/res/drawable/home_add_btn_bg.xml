@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval"
     android:useLevel="false">
-    <solid android:color="@color/home_add_btn" />
+    <solid android:color="@color/colorHomePostBtn" />
     <size
         android:width="50dp"
         android:height="50dp" />

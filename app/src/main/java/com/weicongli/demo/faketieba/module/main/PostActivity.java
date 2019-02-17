@@ -1,7 +1,7 @@
 package com.weicongli.demo.faketieba.module.main;
 
+import com.demo.weicongli.library.base.BaseActivity;
 import com.weicongli.demo.faketieba.R;
-import com.weicongli.demo.faketieba.other.FBaseActivity;
 
 /**
  * @author: WeicongLi
@@ -9,7 +9,7 @@ import com.weicongli.demo.faketieba.other.FBaseActivity;
  * @email: 912220261@qq.com
  * @Function:
  */
-public class PostActivity extends FBaseActivity {
+public class PostActivity extends BaseActivity {
     @Override
     protected int setLayout() {
         return R.layout.post_activity;
