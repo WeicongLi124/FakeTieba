@@ -5,15 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.person.bean.PersonListBean;
+import com.weicongli.demo.faketieba.module.person.holder.AdHolder;
+import com.weicongli.demo.faketieba.module.person.holder.AvatarButtonHolder;
+import com.weicongli.demo.faketieba.module.person.holder.AvatarHolder;
+import com.weicongli.demo.faketieba.module.person.holder.TitleHolder;
 
 import java.util.List;
 
@@ -153,29 +154,5 @@ public class PersonListAdapter extends BaseAdapter {
                 break;
         }
         return view;
-    }
-
-    class AvatarHolder {
-        public ImageView avatar;
-        public TextView name;
-    }
-
-    class AvatarButtonHolder {
-        public TextView focus;
-        public TextView fans;
-        public TextView focusBars;
-        public TextView tips;
-    }
-
-    class AdHolder {
-        public ImageView adIv;
-    }
-
-    class TitleHolder {
-        public ImageView image;
-        public TextView title;
-        public View slimDivider;
-        public View fatDivider;
-        public LinearLayout beanLl;
     }
 }

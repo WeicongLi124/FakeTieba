@@ -7,13 +7,18 @@
 
     <include layout="@layout/main_actionbar" />
 
-    <include layout="@layout/bar_list_search_item" />
+    <ListView
+        android:id="@+id/bar_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<include layout="@layout/bar_list_search_item" />
 
     <include layout="@layout/bar_list_lately_bar_item" />
 
-    <include layout="@layout/bar_list_my_bar_item" />
+    <include layout="@layout/bar_list_view_item" />
 
     <include layout="@layout/bar_list_bar_item" />
 
-    <include layout="@layout/bar_list_add_more_item"/>
+    <include layout="@layout/bar_list_add_more_item"/>-->
 </LinearLayout>

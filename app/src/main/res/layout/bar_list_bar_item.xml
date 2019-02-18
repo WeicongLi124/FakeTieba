@@ -50,10 +50,12 @@
             android:background="@color/colorBarDivider" />
 
         <RelativeLayout
+            android:id="@+id/bar_item_right_rl"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toEndOf="@id/bar_divider"
             android:background="@drawable/person_button_selector"
+            android:visibility="gone"
             android:clickable="true"
             android:focusable="true"
             android:paddingStart="15dp">

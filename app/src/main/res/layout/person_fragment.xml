@@ -5,12 +5,10 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <include
-        layout="@layout/main_actionbar" />
-
+    <include layout="@layout/main_actionbar" />
 
     <ListView
         android:id="@+id/person_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
