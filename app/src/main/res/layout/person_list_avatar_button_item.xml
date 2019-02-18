@@ -121,5 +121,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
-        android:background="@color/colorPersonDivider" />
+        android:background="@color/colorDivider" />
 </LinearLayout>

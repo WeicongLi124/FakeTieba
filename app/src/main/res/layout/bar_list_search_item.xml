@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/colorDivider"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/icon_input_search" />
+
+    <TextView
+        android:id="@+id/search_hot_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/colorBarSearchText"
+        android:text="大家都在搜：豆瓣流浪地球评分"
+        android:textSize="16sp" />
+</LinearLayout>

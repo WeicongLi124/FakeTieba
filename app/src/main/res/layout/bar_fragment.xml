@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="BAR"
-        android:textSize="20sp" />
-</RelativeLayout>
+    <include layout="@layout/main_actionbar" />
+
+    <include layout="@layout/bar_list_search_item" />
+
+    <include layout="@layout/bar_list_lately_bar_item" />
+
+    <include layout="@layout/bar_list_my_bar_item" />
+
+    <include layout="@layout/bar_list_bar_item" />
+
+    <include layout="@layout/bar_list_add_more_item"/>
+</LinearLayout>

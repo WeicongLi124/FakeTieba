@@ -8,5 +8,10 @@
     <color name="colorBottomTabLine">#E3E3E3</color>
     <color name="colorTextOther">#5F5F60</color>
 
-    <color name="colorPersonDivider">#F5F5F5</color>
+    <color name="colorDivider">#F5F5F5</color>
+
+    <color name="colorBarSearchText">#999999</color>
+    <color name="colorBarDivider">#F0F0F0</color>
+    <color name="colorAddBarUnPress">#3385FF</color>
+    <color name="colorAddBarPress">#3472CF</color>
 </resources>

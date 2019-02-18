@@ -85,7 +85,7 @@ public class PersonListAdapter extends BaseAdapter {
                 AvatarHolder avatarHolder;
                 if (view == null) {
                     avatarHolder = new AvatarHolder();
-                    view = inflater.inflate(R.layout.person_avatar_item, viewGroup, false);
+                    view = inflater.inflate(R.layout.person_list_avatar_item, viewGroup, false);
                     avatarHolder.avatar = view.findViewById(R.id.person_avatar_iv);
                     avatarHolder.name = view.findViewById(R.id.person_name_tv);
                     view.setTag(avatarHolder);
@@ -100,7 +100,7 @@ public class PersonListAdapter extends BaseAdapter {
                 AvatarButtonHolder avatarButtonHolder;
                 if (view == null) {
                     avatarButtonHolder = new AvatarButtonHolder();
-                    view = inflater.inflate(R.layout.person_avatar_button_item, viewGroup, false);
+                    view = inflater.inflate(R.layout.person_list_avatar_button_item, viewGroup, false);
                     avatarButtonHolder.focus = view.findViewById(R.id.person_button_focus);
                     avatarButtonHolder.fans = view.findViewById(R.id.person_button_fans);
                     avatarButtonHolder.focusBars = view.findViewById(R.id.person_button_focusbars);
@@ -119,7 +119,7 @@ public class PersonListAdapter extends BaseAdapter {
                 AdHolder adHolder;
                 if (view == null) {
                     adHolder = new AdHolder();
-                    view = inflater.inflate(R.layout.person_ad_item, viewGroup, false);
+                    view = inflater.inflate(R.layout.person_list_ad_item, viewGroup, false);
                     adHolder.adIv = view.findViewById(R.id.person_item_ad_iv);
                     view.setTag(adHolder);
                 } else {
@@ -132,7 +132,7 @@ public class PersonListAdapter extends BaseAdapter {
                 TitleHolder titleHolder;
                 if (view == null) {
                     titleHolder = new TitleHolder();
-                    view = inflater.inflate(R.layout.person_list_item, viewGroup, false);
+                    view = inflater.inflate(R.layout.person_list_function_item, viewGroup, false);
                     titleHolder.title = view.findViewById(R.id.person_list_item_title);
                     titleHolder.image = view.findViewById(R.id.person_list_item_iv);
                     titleHolder.slimDivider = view.findViewById(R.id.item_divider_slim);
