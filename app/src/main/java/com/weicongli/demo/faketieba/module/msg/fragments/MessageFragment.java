@@ -1,4 +1,4 @@
-package com.weicongli.demo.faketieba.module.message;
+package com.weicongli.demo.faketieba.module.msg.fragments;
 
 import android.view.View;
 
@@ -7,14 +7,14 @@ import com.weicongli.demo.faketieba.R;
 
 /**
  * @author: WeicongLi
- * @time: 2019/2/15 16:25
+ * @time: 2019/2/20 22:33
  * @email: 912220261@qq.com
  * @Function:
  */
 public class MessageFragment extends BaseFragment {
     @Override
     protected int setLayout() {
-        return R.layout.message_fragment;
+        return R.layout.msg_message_fragment;
     }
 
     @Override

@@ -14,4 +14,6 @@
     <color name="colorBarDivider">#F0F0F0</color>
     <color name="colorAddBarUnPress">#3385FF</color>
     <color name="colorAddBarPress">#3472CF</color>
+
+    <color name="colorTabUnSelectedText">#656566</color>
 </resources>

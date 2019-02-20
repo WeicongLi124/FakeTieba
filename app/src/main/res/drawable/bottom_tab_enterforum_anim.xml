@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/enterforum0" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum1" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum2" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum3" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum4" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum5" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum6" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum7" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum8" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum9" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum10" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum11" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum12" android:duration="20"/>
-    <item android:drawable="@drawable/enterforum13" android:duration="20"/>
+    <item android:drawable="@drawable/enterforum0" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum1" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum2" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum3" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum4" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum5" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum6" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum7" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum8" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum9" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum10" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum11" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum12" android:duration="30"/>
+    <item android:drawable="@drawable/enterforum13" android:duration="30"/>
 
 </animation-list>

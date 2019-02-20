@@ -17,7 +17,7 @@ import com.demo.weicongli.library.utils.ViewUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.BarFragment;
 import com.weicongli.demo.faketieba.module.home.HomeFragment;
-import com.weicongli.demo.faketieba.module.message.MessageFragment;
+import com.weicongli.demo.faketieba.module.msg.MsgFragment;
 import com.weicongli.demo.faketieba.module.person.PersonFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private HomeFragment homeFg;
     private BarFragment barFg;
-    private MessageFragment messageFg;
+    private MsgFragment messageFg;
     private PersonFragment personFg;
 
     /**
@@ -113,7 +113,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 animationButton(2);
                 break;
             case R.id.main_message_ll:
-                if (messageFg == null) messageFg = new MessageFragment();
+                if (messageFg == null) messageFg = new MsgFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, messageFg).commit();
                 animationButton(3);
                 break;
