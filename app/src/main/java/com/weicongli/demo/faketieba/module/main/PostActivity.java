@@ -1,5 +1,8 @@
 package com.weicongli.demo.faketieba.module.main;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import com.demo.weicongli.library.base.BaseActivity;
 import com.weicongli.demo.faketieba.R;
 
@@ -17,6 +20,12 @@ public class PostActivity extends BaseActivity {
 
     @Override
     protected void initParams() {
+        /*if (getIntent().getData() != null) {
+            String host = getIntent().getData().getHost();
+            Bundle bundle = getIntent().getExtras();
+            String value = bundle.getString("value");
+            Toast.makeText(this, host + ":" + value, Toast.LENGTH_LONG).show();
+        }*/
     }
 
     @Override

@@ -18,7 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.main.PostActivity"/>
+        <activity android:name=".module.main.PostActivity">
+            <intent-filter>
+                <action android:name="com.weiconglee.faketieba.MYACTION" />
+                <data android:scheme="info" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
