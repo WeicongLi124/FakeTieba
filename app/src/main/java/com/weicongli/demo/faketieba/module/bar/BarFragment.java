@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.demo.weicongli.library.base.BaseFragment;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.adapter.BarListAdapter;
-import com.weicongli.demo.faketieba.module.bar.bean.BarDataBean;
+import com.weicongli.demo.faketieba.module.bar.model.BarDataBean;
 
 import java.util.ArrayList;
 import java.util.List;

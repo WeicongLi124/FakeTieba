@@ -9,10 +9,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.weicongli.demo.faketieba.R;
-import com.weicongli.demo.faketieba.module.bar.bean.BarDataBean;
+import com.weicongli.demo.faketieba.module.bar.model.BarDataBean;
 
 import java.util.List;
 

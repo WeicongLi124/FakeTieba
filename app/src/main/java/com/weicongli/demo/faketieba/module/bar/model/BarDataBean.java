@@ -1,4 +1,4 @@
-package com.weicongli.demo.faketieba.module.bar.bean;
+package com.weicongli.demo.faketieba.module.bar.model;
 
 /**
  * @author: WeicongLi

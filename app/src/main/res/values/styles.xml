@@ -42,4 +42,15 @@
     <style name="TabTextSize">
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="FbPopUnderStyle">
+        <item name="android:windowEnterAnimation">@anim/fb_under_show_anim</item>
+        <item name="android:windowExitAnimation">@anim/fb_under_close_anim</item>
+    </style>
+
+    <style name="FbPopTopStyle">
+        <item name="android:windowEnterAnimation">@anim/fb_top_show_anim</item>
+        <item name="android:windowExitAnimation">@anim/fb_top_close_anim</item>
+    </style>
+
 </resources>

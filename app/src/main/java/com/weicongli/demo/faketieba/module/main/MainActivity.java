@@ -140,7 +140,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.post_photo_iv:
             case R.id.post_image_iv:
             case R.id.post_live_iv:
-                start(this,PostActivity.class);
+                start(this, PostActivity.class);
                 postCloseAnimate();
                 break;
         }
