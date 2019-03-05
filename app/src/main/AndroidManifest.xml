@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".module.main.PostActivity">
             <intent-filter>
+                <!--<action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />-->
                 <action android:name="com.weiconglee.faketieba.MYACTION" />
                 <data android:scheme="info" />
                 <category android:name="android.intent.category.DEFAULT" />

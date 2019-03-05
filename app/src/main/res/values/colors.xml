@@ -17,4 +17,8 @@
 
     <color name="colorTabUnSelectedText">#656566</color>
     <color name="colorFeedbackBtn">#3783FB</color>
+
+    <color name="colorCardBtnTextUnSelected">#6E6E6E</color>
+    <color name="colorCardBtnTextSelected">#D9D9D9</color>
+    <color name="colorCardContentSelected">#ECECEC</color>
 </resources>

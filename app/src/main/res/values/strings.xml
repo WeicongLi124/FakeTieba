@@ -9,4 +9,5 @@
     <string name="post_type_image">相册</string>
     <string name="post_type_live">直播</string>
     <string name="person_avatar_text">查看个人主页和编辑资料</string>
+    <string name="msg_item_at">\u0040我的</string>
 </resources>

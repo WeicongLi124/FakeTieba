@@ -51,7 +51,7 @@ public class PersonFragment extends BaseFragment {
         personListBeanList = new ArrayList<>();
         personListBeanList.add(new PersonListBean(0, "ぼく", R.drawable.avatar));
         personListBeanList.add(new PersonListBean(1, 2 + "", 86 + "", 6 + "", 20 + ""));
-        personListBeanList.add(new PersonListBean(2));
+//        personListBeanList.add(new PersonListBean(2));
         for (int i = 0; i < image.length; i++) {
             personListBeanList.add(new PersonListBean(3, image[i], title[i]));
         }

@@ -72,7 +72,7 @@ public class MsgFragment extends BaseFragment {
         titleList.add("通知");
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager(), fragmentList, titleList,false));
         slidingTabLayout.setTabTitleTextSize(20);
-        slidingTabLayout.setTabStripWidth(80);
+        slidingTabLayout.setTabStripWidth(100);
         slidingTabLayout.setTitleTextColor(Color.BLACK, R.color.colorTabUnSelectedText);
         slidingTabLayout.setCustomTabView(R.layout.viewpager_tab_view, R.id.tabText);
         slidingTabLayout.setViewPager(viewPager);
