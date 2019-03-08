@@ -13,26 +13,26 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.weicongli.demo.faketieba.R;
-import com.weicongli.demo.faketieba.module.home.model.UserTipItemBean;
+import com.weicongli.demo.faketieba.module.home.model.BarTipItemBean;
 
 import java.util.List;
 
 /**
  * @author: WeicongLi
- * @time: 2019/3/1 17:05
+ * @time: 2019/3/7 16:23
  * @email: 912220261@qq.com
  * @Function:
  */
-public class CenterAdapter extends BaseAdapter {
+public class FocusAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
-    private List<UserTipItemBean> itemBeanList;
+    private List<BarTipItemBean> itemBeanList;
     private View.OnClickListener clickListener;
     public final int UPDATE_SHARE = 0;
     public final int UPDATE_CHAT = 1;
     public final int UPDATE_LIKE = 2;
 
-    public CenterAdapter(Context context, List<UserTipItemBean> itemBeanList, View.OnClickListener clickListener) {
+    public FocusAdapter(Context context, List<BarTipItemBean> itemBeanList, View.OnClickListener clickListener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.itemBeanList = itemBeanList;
@@ -67,47 +67,45 @@ public class CenterAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return itemBeanList.get(i);
+    public Object getItem(int position) {
+        return itemBeanList.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(final int position, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         CenterViewHolder viewHolder;
-        UserTipItemBean itemBean = itemBeanList.get(position);
-        if (view == null) {
+        BarTipItemBean itemBean = itemBeanList.get(position);
+        if (convertView == null) {
             viewHolder = new CenterViewHolder();
-            view = inflater.inflate(R.layout.home_user_tip_item, viewGroup, false);
-            viewHolder.avatarIv = view.findViewById(R.id.center_item_avatar_iv);
-            viewHolder.nameTv = view.findViewById(R.id.center_item_name_tv);
-            viewHolder.barNameTv = view.findViewById(R.id.center_item_bar_tv);
-            viewHolder.timeTv = view.findViewById(R.id.center_item_time_tv);
-            viewHolder.contentTv = view.findViewById(R.id.center_item_content_tv);
-            viewHolder.shareLl = view.findViewById(R.id.card_item_share_ll);
-            viewHolder.chatLl = view.findViewById(R.id.card_item_chat_ll);
-            viewHolder.likeLl = view.findViewById(R.id.card_item_like_ll);
-            viewHolder.shareTv = view.findViewById(R.id.card_item_share_tv);
-            viewHolder.chatTv = view.findViewById(R.id.card_item_chat_tv);
-            viewHolder.likeTv = view.findViewById(R.id.card_item_like_tv);
-            viewHolder.likeIv = view.findViewById(R.id.card_item_like_iv);
-            viewHolder.closeLl = view.findViewById(R.id.center_item_close_ll);
+            convertView = inflater.inflate(R.layout.home_bar_tip_item, parent, false);
+            viewHolder.avatarIv = convertView.findViewById(R.id.focus_item_avatar_iv);
+            viewHolder.nameTv = convertView.findViewById(R.id.focus_item_bar_name_tv);
+            viewHolder.userNameTv = convertView.findViewById(R.id.focus_item_user_name_tv);
+            viewHolder.timeTv = convertView.findViewById(R.id.focus_item_time_tv);
+            viewHolder.contentTv = convertView.findViewById(R.id.focus_item_content_tv);
+            viewHolder.shareLl = convertView.findViewById(R.id.card_item_share_ll);
+            viewHolder.chatLl = convertView.findViewById(R.id.card_item_chat_ll);
+            viewHolder.likeLl = convertView.findViewById(R.id.card_item_like_ll);
+            viewHolder.shareTv = convertView.findViewById(R.id.card_item_share_tv);
+            viewHolder.chatTv = convertView.findViewById(R.id.card_item_chat_tv);
+            viewHolder.likeTv = convertView.findViewById(R.id.card_item_like_tv);
+            viewHolder.likeIv = convertView.findViewById(R.id.card_item_like_iv);
             //设置监听
             viewHolder.shareLl.setOnClickListener(clickListener);
             viewHolder.chatLl.setOnClickListener(clickListener);
             viewHolder.likeLl.setOnClickListener(clickListener);
-            viewHolder.closeLl.setOnClickListener(clickListener);
-            view.setTag(viewHolder);
+            convertView.setTag(viewHolder);
         } else {
-            viewHolder = (CenterViewHolder) view.getTag();
+            viewHolder = (CenterViewHolder) convertView.getTag();
         }
         Glide.with(context).load(itemBean.getAvatar()).apply(new RequestOptions().circleCrop()).into(viewHolder.avatarIv);
         viewHolder.nameTv.setText(itemBean.getName());
-        viewHolder.barNameTv.setText(itemBean.getBarName());
+        viewHolder.userNameTv.setText(itemBean.getUserName());
         viewHolder.timeTv.setText(itemBean.getTime());
         viewHolder.contentTv.setText(itemBean.getContent());
         //设置分享、讨论与点赞数
@@ -122,20 +120,18 @@ public class CenterAdapter extends BaseAdapter {
         viewHolder.shareLl.setTag(R.id.card_item_share_ll, position);
         viewHolder.chatLl.setTag(R.id.card_item_chat_ll, position);
         viewHolder.likeLl.setTag(R.id.card_item_like_ll, position);
-        viewHolder.closeLl.setTag(R.id.center_item_close_ll, position);
-        return view;
+        return convertView;
     }
 
     private class CenterViewHolder {
         ImageView avatarIv;
         TextView nameTv;
-        TextView barNameTv;
+        TextView userNameTv;
         TextView timeTv;
         TextView contentTv;
         LinearLayout shareLl;
         LinearLayout chatLl;
         LinearLayout likeLl;
-        LinearLayout closeLl;
         TextView shareTv;
         TextView chatTv;
         TextView likeTv;

@@ -11,34 +11,43 @@
         android:paddingStart="15dp">
 
         <ImageView
-            android:id="@+id/center_item_avatar_iv"
+            android:id="@+id/focus_item_avatar_iv"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/avatar" />
+            android:src="@drawable/sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/center_item_avatar_iv"
+            android:layout_toEndOf="@id/focus_item_avatar_iv"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/center_item_name_tv"
+                    android:id="@+id/focus_item_bar_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ぼく"
-                    android:textColor="@android:color/black"
+                    android:text="Summer Pockest"
+                    android:textColor="@color/colorFeedbackBtn"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="吧"
+                    android:textColor="@color/colorFeedbackBtn"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/home_focus_timenname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -46,52 +55,36 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/center_item_bar_tv"
+                    android:id="@+id/focus_item_user_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Summer Pockets"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxEms="6"
+                    android:text="ぼく"
                     android:textColor="@color/colorBarSearchText"
                     android:textSize="12sp" />
 
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="10dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@color/colorBarSearchText" />
-
                 <TextView
-                    android:id="@+id/center_item_time_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5分钟前"
+                    android:text="发布于"
+                    android:textColor="@color/colorBarSearchText"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/focus_item_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2019-03-07"
                     android:textColor="@color/colorBarSearchText"
                     android:textSize="12sp" />
             </LinearLayout>
         </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/center_item_close_ll"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="end"
-            android:paddingTop="10dp"
-            android:paddingEnd="15dp">
-
-            <ImageView
-                android:layout_width="11dp"
-                android:layout_height="11dp"
-                android:src="@drawable/home_card_close_selector" />
-        </LinearLayout>
-
-
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/center_item_content_tv"
+        android:id="@+id/focus_item_content_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -110,7 +103,7 @@
         android:padding="0.2dp">
 
         <ImageView
-            android:id="@+id/center_item_content_iv"
+            android:id="@+id/focus_item_content_iv"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"

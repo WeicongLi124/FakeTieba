@@ -2,14 +2,14 @@ package com.weicongli.demo.faketieba.module.home.model;
 
 /**
  * @author: WeicongLi
- * @time: 2019/3/1 17:06
+ * @time: 2019/3/7 16:24
  * @email: 912220261@qq.com
  * @Function:
  */
-public class CenterItemBean {
-    private int avatar;
+public class BarTipItemBean {
+    private String avatar;
     private String name;
-    private String barName;
+    private String userName;
     private String time;
     private String content;
     private int shareNum;
@@ -17,10 +17,10 @@ public class CenterItemBean {
     private int likeNum;
     private boolean hadLike;
 
-    public CenterItemBean(int avatar, String name, String barName, String time, String content, int shareNum, int chatNum, int likeNum, boolean hadLike) {
+    public BarTipItemBean(String avatar, String name, String userName, String time, String content, int shareNum, int chatNum, int likeNum, boolean hadLike) {
         this.avatar = avatar;
         this.name = name;
-        this.barName = barName;
+        this.userName = userName;
         this.time = time;
         this.content = content;
         this.shareNum = shareNum;
@@ -29,11 +29,11 @@ public class CenterItemBean {
         this.hadLike = hadLike;
     }
 
-    public int getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(int avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
@@ -45,12 +45,12 @@ public class CenterItemBean {
         this.name = name;
     }
 
-    public String getBarName() {
-        return barName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setBarName(String barName) {
-        this.barName = barName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getTime() {

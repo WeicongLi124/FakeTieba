@@ -15,7 +15,7 @@ import com.demo.weicongli.library.base.BaseFragment;
 import com.demo.weicongli.library.utils.ToastUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.home.adapter.CenterAdapter;
-import com.weicongli.demo.faketieba.module.home.model.CenterItemBean;
+import com.weicongli.demo.faketieba.module.home.model.UserTipItemBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.List;
 public class CenterFragment extends BaseFragment implements View.OnClickListener {
     private ListView listView;
     private CenterAdapter adapter;
-    private List<CenterItemBean> itemBeanList;
+    private List<UserTipItemBean> itemBeanList;
     private TextView notLike;
     private LinearLayout popBgLl;
     private PopupWindow popupWindow;
@@ -58,13 +58,13 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
 
     private void initData() {
         itemBeanList = new ArrayList<>();
-        itemBeanList.add(new CenterItemBean(R.drawable.avatar, "ぼく", "SummerPockets吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "SummerPockets吧",
                 "5分钟", "这是一张宣传图", 0, 6, 1, true));
-        itemBeanList.add(new CenterItemBean(R.drawable.avatar, "ぼく", "我的英雄学院吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "我的英雄学院吧",
                 "7分钟", "这是一张宣传图", 7, 6, 9, false));
-        itemBeanList.add(new CenterItemBean(R.drawable.avatar, "ぼく", "漫画吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "漫画吧",
                 "15分钟", "这是一张宣传图", 10, 55, 60, false));
-        itemBeanList.add(new CenterItemBean(R.drawable.avatar, "ぼく", "游戏吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "游戏吧",
                 "56分钟", "这是一张宣传图", 6, 1, 9, false));
     }
 
@@ -72,16 +72,16 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View view) {
         int position;
         switch (view.getId()) {
-            case R.id.center_item_share_ll:
-                position = (int) view.getTag(R.id.center_item_share_ll);
+            case R.id.card_item_share_ll:
+                position = (int) view.getTag(R.id.card_item_share_ll);
                 adapter.update(adapter.UPDATE_SHARE, position);
                 break;
-            case R.id.center_item_chat_ll:
-                position = (int) view.getTag(R.id.center_item_chat_ll);
+            case R.id.card_item_chat_ll:
+                position = (int) view.getTag(R.id.card_item_chat_ll);
                 adapter.update(adapter.UPDATE_CHAT, position);
                 break;
-            case R.id.center_item_like_ll:
-                position = (int) view.getTag(R.id.center_item_like_ll);
+            case R.id.card_item_like_ll:
+                position = (int) view.getTag(R.id.card_item_like_ll);
                 adapter.update(adapter.UPDATE_LIKE, position);
                 break;
             case R.id.center_item_close_ll:

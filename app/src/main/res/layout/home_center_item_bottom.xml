@@ -6,7 +6,7 @@
     android:weightSum="3">
 
     <LinearLayout
-        android:id="@+id/center_item_share_ll"
+        android:id="@+id/card_item_share_ll"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -21,7 +21,7 @@
             android:src="@drawable/home_card_share_selector" />
 
         <TextView
-            android:id="@+id/center_item_share_tv"
+            android:id="@+id/card_item_share_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
@@ -31,7 +31,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/center_item_chat_ll"
+        android:id="@+id/card_item_chat_ll"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -46,7 +46,7 @@
             android:src="@drawable/home_card_comment_selector" />
 
         <TextView
-            android:id="@+id/center_item_chat_tv"
+            android:id="@+id/card_item_chat_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
@@ -56,7 +56,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/center_item_like_ll"
+        android:id="@+id/card_item_like_ll"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -65,14 +65,14 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/center_item_like_iv"
+            android:id="@+id/card_item_like_iv"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginEnd="2.5dp"
             android:src="@drawable/home_card_like_selector" />
 
         <TextView
-            android:id="@+id/center_item_like_tv"
+            android:id="@+id/card_item_like_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"

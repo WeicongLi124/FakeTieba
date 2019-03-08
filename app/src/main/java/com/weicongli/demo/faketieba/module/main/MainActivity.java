@@ -51,10 +51,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout photoLl;
     private LinearLayout imageLl;
     private LinearLayout liveLl;
-    private ImageView textIv;
-    private ImageView photoIv;
-    private ImageView imageIv;
-    private ImageView liveIv;
     private int postState = 1;
     private String TAG = "MainActivity";
 
@@ -80,7 +76,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         photoLl = findViewById(R.id.post_photo_ll);
         imageLl = findViewById(R.id.post_image_ll);
         liveLl = findViewById(R.id.post_live_ll);
-        textIv = findViewById(R.id.post_text_iv);
     }
 
     @Override
@@ -184,10 +179,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void postOpenAnimate() {
         closeIv.animate().rotation(90).setDuration(400);
         postBg.animate().alpha(1).setDuration(600);
-        animatorPlayer(textLl, -200, 0, 700, 0, OPEN);
-        animatorPlayer(photoLl, -200, 100, 800, 0, OPEN);
-        animatorPlayer(imageLl, -200, 200, 900, 0, OPEN);
-        animatorPlayer(liveLl, -200, 300, 1000, 2, OPEN);
+        animatorPlayer(textLl, -200, 0, 700, NO_LAST, OPEN);
+        animatorPlayer(photoLl, -200, 100, 800, NO_LAST, OPEN);
+        animatorPlayer(imageLl, -200, 200, 900, NO_LAST, OPEN);
+        animatorPlayer(liveLl, -200, 300, 1000, OPEN_LAST, OPEN);
     }
 
     /**
@@ -196,16 +191,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void postCloseAnimate() {
         closeIv.animate().rotation(0).setDuration(600);
         postBg.animate().alpha(0).setDuration(1000);
-        animatorPlayer(textLl, 200, 300, 1000, 1, CLOSE);
-        animatorPlayer(photoLl, 200, 200, 900, 0, CLOSE);
-        animatorPlayer(imageLl, 200, 100, 800, 0, CLOSE);
-        animatorPlayer(liveLl, 200, 0, 700, 0, CLOSE);
+        animatorPlayer(textLl, 200, 300, 1000, CLOSE_LAST, CLOSE);
+        animatorPlayer(photoLl, 200, 200, 900, NO_LAST, CLOSE);
+        animatorPlayer(imageLl, 200, 100, 800, NO_LAST, CLOSE);
+        animatorPlayer(liveLl, 200, 0, 700, NO_LAST, CLOSE);
     }
 
 
     private final static boolean OPEN = true;
     private final static boolean CLOSE = false;
-
+    private final static int OPEN_LAST = 2;
+    private final static int CLOSE_LAST = 1;
+    private final static int NO_LAST = 0;
     /**
      * 新增帖子弹出动画框架
      *
@@ -213,10 +210,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @param translationY
      * @param delay
      * @param duration
-     * @param a
+     * @param lastTime
      * @param order
      */
-    private void animatorPlayer(View view, float translationY, long delay, long duration, final int a, boolean order) {
+    private void animatorPlayer(View view, float translationY, long delay, long duration, final int lastTime, boolean order) {
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator animator2;
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "translationY", ViewUtils.dpToPixel(translationY)).setDuration(duration);
@@ -233,8 +230,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         animatorSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                switch (a) {
-                    case 1:
+                switch (lastTime) {
+                    case CLOSE_LAST:
                         postContainerRl.setVisibility(View.GONE);
                         textLl.setAlpha(0);
                         imageLl.setAlpha(0);
@@ -246,7 +243,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         liveLl.setY(ViewUtils.dpToPixel(200));
                         postState = 1;
                         break;
-                    case 2:
+                    case OPEN_LAST:
                         postState = 2;
                         break;
                     default:

@@ -62,7 +62,7 @@ public class BarFragment extends BaseFragment {
         dataBeanList.add(new BarDataBean(1));
         dataBeanList.add(new BarDataBean(2));
         dataBeanList.add(new BarDataBean("Summer Pockets", R.drawable.icon_level_18, true, true,
-                "galgame", R.drawable.icon_level_17, true, 3));
+                "game", R.drawable.icon_level_17, true, 3));
         dataBeanList.add(new BarDataBean("海贼王", R.drawable.icon_level_13, true, true,
                 "我的英雄学院", R.drawable.icon_level_13, true, 3));
         dataBeanList.add(new BarDataBean("KEY", R.drawable.icon_level_13, true, true,
