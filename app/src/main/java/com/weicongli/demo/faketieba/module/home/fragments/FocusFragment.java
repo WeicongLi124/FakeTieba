@@ -1,9 +1,11 @@
 package com.weicongli.demo.faketieba.module.home.fragments;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.home.adapter.FocusAdapter;
 import com.weicongli.demo.faketieba.module.home.model.BarTipItemBean;
@@ -21,6 +23,7 @@ public class FocusFragment extends BaseFragment implements View.OnClickListener 
     private ListView listView;
     private List<BarTipItemBean> itemBeanList;
     private FocusAdapter adapter;
+    private boolean isFirstInit = true;
 
     @Override
     protected int setLayout() {
@@ -28,11 +31,14 @@ public class FocusFragment extends BaseFragment implements View.OnClickListener 
     }
 
     @Override
-    protected void initView(View view) {
-        initData();
+    protected void initParams(View view) {
         listView = view.findViewById(R.id.home_focus_lv);
-        adapter = new FocusAdapter(getContext(), itemBeanList, this);
         listView.setDividerHeight(0);
+        if (isFirstInit) {
+            initData();
+            adapter = new FocusAdapter(getContext(), itemBeanList, this);
+            isFirstInit = false;
+        }
         listView.setAdapter(adapter);
     }
 
@@ -75,7 +81,6 @@ public class FocusFragment extends BaseFragment implements View.OnClickListener 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        itemBeanList = null;
+        ObjectUtils.handGC(adapter,itemBeanList);
     }
 }

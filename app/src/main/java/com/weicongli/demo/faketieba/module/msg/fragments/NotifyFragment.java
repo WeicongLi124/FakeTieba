@@ -18,7 +18,7 @@ public class NotifyFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initParams(View view) {
 
     }
 

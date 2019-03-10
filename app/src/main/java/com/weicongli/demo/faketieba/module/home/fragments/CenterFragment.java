@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.demo.weicongli.library.utils.ToastUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.home.adapter.CenterAdapter;
@@ -33,6 +34,7 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
     private TextView notLike;
     private LinearLayout popBgLl;
     private PopupWindow popupWindow;
+    private boolean isFirstInit = true;
     private String TAG = "CenterFragment";
 
 
@@ -42,11 +44,14 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
     }
 
     @Override
-    protected void initView(View view) {
-        initData();
-        adapter = new CenterAdapter(getContext(), itemBeanList, this);
+    protected void initParams(View view) {
         listView = view.findViewById(R.id.home_center_lv);
         listView.setDividerHeight(0);
+        if (isFirstInit) {
+            initData();
+            adapter = new CenterAdapter(getContext(), itemBeanList, this);
+            isFirstInit = false;
+        }
         listView.setAdapter(adapter);
     }
 
@@ -89,7 +94,7 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
                 showPopupWindow(view);
                 break;
             case R.id.home_pop_notlike:
-                ToastUtils.show(getContext(), "notLike", Toast.LENGTH_LONG);
+                ToastUtils.showText(getContext(), "notLike", Gravity.CENTER, Toast.LENGTH_LONG);
                 break;
         }
     }
@@ -170,7 +175,6 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        itemBeanList = null;
+        ObjectUtils.handGC(adapter, itemBeanList);
     }
 }

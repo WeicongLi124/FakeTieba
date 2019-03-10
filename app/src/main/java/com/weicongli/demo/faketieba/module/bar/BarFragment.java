@@ -6,6 +6,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.adapter.BarListAdapter;
 import com.weicongli.demo.faketieba.module.bar.model.BarDataBean;
@@ -34,7 +35,7 @@ public class BarFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initParams(View view) {
         actionBarTv = view.findViewById(R.id.actionbar_title);
         actionBarIvL = view.findViewById(R.id.actionbar_left);
         actionBarIvR1 = view.findViewById(R.id.actionbar_right1);
@@ -78,7 +79,6 @@ public class BarFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        dataBeanList = null;
+        ObjectUtils.handGC(adapter,dataBeanList);
     }
 }

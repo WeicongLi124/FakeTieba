@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.msg.adapter.MsgListAdapter;
 import com.weicongli.demo.faketieba.module.msg.model.MessageBean;
@@ -21,6 +22,7 @@ public class MessageFragment extends BaseFragment {
     private ListView listView;
     private MsgListAdapter adapter;
     private List<MessageBean> messageBeanList;
+    private boolean isFirstInit = true;
 
     @Override
     protected int setLayout() {
@@ -28,13 +30,16 @@ public class MessageFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
-        initData();
+    protected void initParams(View view) {
         View headerView = getLayoutInflater().inflate(R.layout.msg_message_header_item, null);
         listView = view.findViewById(R.id.message_lv);
         listView.addHeaderView(headerView);
-        adapter = new MsgListAdapter(getContext(), messageBeanList);
         listView.setDividerHeight(0);
+        if (isFirstInit) {
+            initData();
+            adapter = new MsgListAdapter(getContext(), messageBeanList);
+            isFirstInit = false;
+        }
         listView.setAdapter(adapter);
     }
 
@@ -58,7 +63,6 @@ public class MessageFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        messageBeanList = null;
+        ObjectUtils.handGC(adapter,messageBeanList);
     }
 }

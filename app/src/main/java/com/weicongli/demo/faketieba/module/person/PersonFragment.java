@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.person.adapter.PersonListAdapter;
 import com.weicongli.demo.faketieba.module.person.bean.PersonListBean;
@@ -35,7 +36,7 @@ public class PersonFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initParams(View view) {
         listView = view.findViewById(R.id.person_lv);
         listView.setDividerHeight(0);
     }
@@ -60,7 +61,6 @@ public class PersonFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        personListBeanList = null;
-        adapter = null;
+        ObjectUtils.handGC(personListBeanList,adapter);
     }
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.demo.weicongli.library.adapter.PagerAdapter;
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.msg.fragments.ChatFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.MessageFragment;
@@ -33,8 +34,12 @@ public class MsgFragment extends BaseFragment {
     private ViewPager viewPager;
     private PagerAdapter adapter;
 
+    private MessageFragment messageFragment;
+    private ChatFragment chatFragment;
+    private NotifyFragment notifyFragment;
     private List<Fragment> fragmentList;
     private List<String> titleList;
+    private boolean isFirstInit = true;
 
     @Override
     protected int setLayout() {
@@ -42,7 +47,7 @@ public class MsgFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initParams(View view) {
         actionBarTv = view.findViewById(R.id.actionbar_title);
         actionBarIvL = view.findViewById(R.id.actionbar_left);
         actionBarIvR1 = view.findViewById(R.id.actionbar_right1);
@@ -63,14 +68,20 @@ public class MsgFragment extends BaseFragment {
     }
 
     private void initViewPager() {
-        fragmentList = new ArrayList<>();
-        titleList = new ArrayList<>();
-        fragmentList.add(new MessageFragment());
-        fragmentList.add(new ChatFragment());
-        fragmentList.add(new NotifyFragment());
-        titleList.add("消息");
-        titleList.add("聊天");
-        titleList.add("通知");
+        if (isFirstInit) {
+            fragmentList = new ArrayList<>();
+            titleList = new ArrayList<>();
+            messageFragment = new MessageFragment();
+            chatFragment = new ChatFragment();
+            notifyFragment = new NotifyFragment();
+            fragmentList.add(messageFragment);
+            fragmentList.add(chatFragment);
+            fragmentList.add(notifyFragment);
+            titleList.add("消息");
+            titleList.add("聊天");
+            titleList.add("通知");
+            isFirstInit = false;
+        }
         adapter = new PagerAdapter(getChildFragmentManager(), fragmentList, titleList, false);
         viewPager.setAdapter(adapter);
         slidingTabLayout.setTabTitleTextSize(20);
@@ -84,8 +95,6 @@ public class MsgFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        fragmentList = null;
-        titleList = null;
+        ObjectUtils.handGC(adapter, messageFragment, chatFragment, notifyFragment, fragmentList, titleList);
     }
 }

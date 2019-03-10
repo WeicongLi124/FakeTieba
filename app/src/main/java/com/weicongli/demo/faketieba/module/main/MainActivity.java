@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.demo.weicongli.library.base.BaseActivity;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.demo.weicongli.library.utils.ViewUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.BarFragment;
@@ -52,6 +54,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout imageLl;
     private LinearLayout liveLl;
     private int postState = 1;
+
+    private AnimatorSet animatorSet;
+    private OvershootInterpolator overshootInterpolator;
+    private FastOutSlowInInterpolator fastOutSlowInInterpolator;
     private String TAG = "MainActivity";
 
     @Override
@@ -215,15 +221,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @param order
      */
     private void animatorPlayer(View view, float translationY, long delay, long duration, final int lastTime, boolean order) {
-        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet = new AnimatorSet();
         ObjectAnimator animator2;
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "translationY", ViewUtils.dpToPixel(translationY)).setDuration(duration);
         if (order) {
             animator2 = ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(1000);
-            animatorSet.setInterpolator(new OvershootInterpolator());
+            if (overshootInterpolator == null) {
+                overshootInterpolator = new OvershootInterpolator();
+            }
+            animatorSet.setInterpolator(overshootInterpolator);
         } else {
             animator2 = ObjectAnimator.ofFloat(view, "alpha", 1, 1).setDuration(1000);
-            animatorSet.setInterpolator(new FastOutSlowInInterpolator());
+            if (fastOutSlowInInterpolator == null) {
+                fastOutSlowInInterpolator = new FastOutSlowInInterpolator();
+            }
+            animatorSet.setInterpolator(fastOutSlowInInterpolator);
         }
         animatorSet.play(animator1).with(animator2);
         animatorSet.setStartDelay(delay);
@@ -257,6 +269,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        animationDrawable = null;
+        ObjectUtils.handGC(homeFg, barFg, messageFg, personFg, animationDrawable, animatorSet, overshootInterpolator, fastOutSlowInInterpolator);
     }
 }

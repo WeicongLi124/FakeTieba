@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.demo.weicongli.library.adapter.PagerAdapter;
 import com.demo.weicongli.library.base.BaseFragment;
+import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.home.fragments.CenterFragment;
 import com.weicongli.demo.faketieba.module.home.fragments.FocusFragment;
@@ -35,6 +36,10 @@ public class HomeFragment extends BaseFragment {
 
     private List<Fragment> fragmentList;
     private List<String> titleList;
+    private FocusFragment focusFragment;
+    private CenterFragment centerFragment;
+    private VideoFragment videoFragment;
+    private boolean isFirstInit = true;
 
     @Override
     protected int setLayout() {
@@ -42,7 +47,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initParams(View view) {
         actionBarTv = view.findViewById(R.id.actionbar_title);
         actionBarIvL = view.findViewById(R.id.actionbar_left);
         actionBarIvR1 = view.findViewById(R.id.actionbar_right1);
@@ -63,14 +68,20 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initViewPager() {
-        fragmentList = new ArrayList<>();
-        titleList = new ArrayList<>();
-        fragmentList.add(new FocusFragment());
-        fragmentList.add(new CenterFragment());
-        fragmentList.add(new VideoFragment());
-        titleList.add("关注");
-        titleList.add("首页");
-        titleList.add("视频");
+        if (isFirstInit) {
+            fragmentList = new ArrayList<>();
+            titleList = new ArrayList<>();
+            focusFragment = new FocusFragment();
+            centerFragment = new CenterFragment();
+            videoFragment = new VideoFragment();
+            fragmentList.add(focusFragment);
+            fragmentList.add(centerFragment);
+            fragmentList.add(videoFragment);
+            titleList.add("关注");
+            titleList.add("首页");
+            titleList.add("视频");
+            isFirstInit = false;
+        }
         adapter = new PagerAdapter(getChildFragmentManager(), fragmentList, titleList, false);
         viewPager.setAdapter(adapter);
         slidingTabLayout.setTabTitleTextSize(20);
@@ -85,8 +96,6 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        adapter = null;
-        fragmentList = null;
-        titleList = null;
+        ObjectUtils.handGC(adapter, fragmentList, titleList, focusFragment, centerFragment, videoFragment);
     }
 }
