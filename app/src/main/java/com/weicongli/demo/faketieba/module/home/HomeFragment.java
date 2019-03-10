@@ -31,6 +31,7 @@ public class HomeFragment extends BaseFragment {
     private ImageView actionBarIvR2;
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
+    private PagerAdapter adapter;
 
     private List<Fragment> fragmentList;
     private List<String> titleList;
@@ -70,7 +71,8 @@ public class HomeFragment extends BaseFragment {
         titleList.add("关注");
         titleList.add("首页");
         titleList.add("视频");
-        viewPager.setAdapter(new PagerAdapter(getChildFragmentManager(), fragmentList, titleList, false));
+        adapter = new PagerAdapter(getChildFragmentManager(), fragmentList, titleList, false);
+        viewPager.setAdapter(adapter);
         slidingTabLayout.setTabTitleTextSize(20);
         slidingTabLayout.setTabStripWidth(100);
         slidingTabLayout.setTitleTextColor(Color.BLACK, R.color.colorTabUnSelectedText);
@@ -78,5 +80,13 @@ public class HomeFragment extends BaseFragment {
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.setSelectedIndicatorColors(Color.BLACK);
         viewPager.setCurrentItem(1);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        fragmentList = null;
+        titleList = null;
     }
 }

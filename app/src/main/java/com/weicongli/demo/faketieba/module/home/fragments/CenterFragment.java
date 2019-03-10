@@ -166,4 +166,11 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
             popupWindow.dismiss();
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        itemBeanList = null;
+    }
 }

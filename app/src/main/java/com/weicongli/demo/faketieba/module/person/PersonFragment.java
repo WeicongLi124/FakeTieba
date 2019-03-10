@@ -56,4 +56,11 @@ public class PersonFragment extends BaseFragment {
             personListBeanList.add(new PersonListBean(3, image[i], title[i]));
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        personListBeanList = null;
+        adapter = null;
+    }
 }

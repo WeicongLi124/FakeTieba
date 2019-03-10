@@ -71,4 +71,11 @@ public class FocusFragment extends BaseFragment implements View.OnClickListener 
                 break;
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        itemBeanList = null;
+    }
 }

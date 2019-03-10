@@ -74,4 +74,11 @@ public class BarFragment extends BaseFragment {
         dataBeanList.add(new BarDataBean("华南理工大学广州学院", R.drawable.icon_level_02, true, false, 3));
         dataBeanList.add(new BarDataBean(4));
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        dataBeanList = null;
+    }
 }

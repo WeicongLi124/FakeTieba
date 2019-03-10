@@ -54,4 +54,11 @@ public class MessageFragment extends BaseFragment {
         messageBeanList.add(new MessageBean(R.drawable.avatar, "ぼく", "55分钟", "任天堂就是世界主宰哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒！", "《NS，全名NINTENDO SWITCH，" +
                 "是任天堂游戏公司于2017年3月首发的旗舰产品，主机采用家用机掌机一体化设计。", "switch吧"));
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        messageBeanList = null;
+    }
 }

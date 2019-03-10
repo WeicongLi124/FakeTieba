@@ -31,6 +31,7 @@ public class MsgFragment extends BaseFragment {
     private ImageView actionBarIvR2;
     private SlidingTabLayout slidingTabLayout;
     private ViewPager viewPager;
+    private PagerAdapter adapter;
 
     private List<Fragment> fragmentList;
     private List<String> titleList;
@@ -70,12 +71,21 @@ public class MsgFragment extends BaseFragment {
         titleList.add("消息");
         titleList.add("聊天");
         titleList.add("通知");
-        viewPager.setAdapter(new PagerAdapter(getChildFragmentManager(), fragmentList, titleList,false));
+        adapter = new PagerAdapter(getChildFragmentManager(), fragmentList, titleList, false);
+        viewPager.setAdapter(adapter);
         slidingTabLayout.setTabTitleTextSize(20);
         slidingTabLayout.setTabStripWidth(100);
         slidingTabLayout.setTitleTextColor(Color.BLACK, R.color.colorTabUnSelectedText);
         slidingTabLayout.setCustomTabView(R.layout.viewpager_tab_view, R.id.tabText);
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.setSelectedIndicatorColors(Color.BLACK);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        fragmentList = null;
+        titleList = null;
     }
 }

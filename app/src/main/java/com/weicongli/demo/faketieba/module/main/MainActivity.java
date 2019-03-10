@@ -203,6 +203,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private final static int OPEN_LAST = 2;
     private final static int CLOSE_LAST = 1;
     private final static int NO_LAST = 0;
+
     /**
      * 新增帖子弹出动画框架
      *
@@ -251,5 +252,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        animationDrawable = null;
     }
 }
