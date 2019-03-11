@@ -63,13 +63,13 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
 
     private void initData() {
         itemBeanList = new ArrayList<>();
-        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "SummerPockets吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "SummerPockets",
                 "5分钟", "这是一张宣传图", 0, 6, 1, true));
-        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "我的英雄学院吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "我的英雄学院",
                 "7分钟", "这是一张宣传图", 7, 6, 9, false));
-        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "漫画吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "漫画",
                 "15分钟", "这是一张宣传图", 10, 55, 60, false));
-        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "游戏吧",
+        itemBeanList.add(new UserTipItemBean(R.drawable.avatar, "ぼく", "游戏",
                 "56分钟", "这是一张宣传图", 6, 1, 9, false));
     }
 

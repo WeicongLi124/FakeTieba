@@ -221,7 +221,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @param order
      */
     private void animatorPlayer(View view, float translationY, long delay, long duration, final int lastTime, boolean order) {
-        animatorSet = new AnimatorSet();
+        if (animatorSet != null) {
+            animatorSet = new AnimatorSet();
+        }
         ObjectAnimator animator2;
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "translationY", ViewUtils.dpToPixel(translationY)).setDuration(duration);
         if (order) {

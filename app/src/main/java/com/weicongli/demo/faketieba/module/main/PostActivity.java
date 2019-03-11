@@ -24,4 +24,10 @@ public class PostActivity extends BaseActivity {
     @Override
     protected void initListener() {
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        setContentView(R.layout.view_null);
+    }
 }
