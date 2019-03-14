@@ -175,6 +175,5 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(adapter, itemBeanList);
     }
 }

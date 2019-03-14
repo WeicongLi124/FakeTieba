@@ -14,7 +14,7 @@ import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.msg.fragments.ChatFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.MessageFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.NotifyFragment;
-import com.weicongli.demo.faketieba.other.slidingTab.SlidingTabLayout;
+import com.weicongli.demo.faketieba.view.slidingTab.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +95,5 @@ public class MsgFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(adapter, messageFragment, chatFragment, notifyFragment, fragmentList, titleList);
     }
 }

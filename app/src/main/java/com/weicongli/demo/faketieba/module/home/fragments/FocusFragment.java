@@ -81,6 +81,5 @@ public class FocusFragment extends BaseFragment implements View.OnClickListener 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(adapter,itemBeanList);
     }
 }

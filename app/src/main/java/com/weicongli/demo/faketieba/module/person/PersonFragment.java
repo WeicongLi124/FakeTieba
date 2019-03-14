@@ -61,6 +61,5 @@ public class PersonFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(personListBeanList,adapter);
     }
 }

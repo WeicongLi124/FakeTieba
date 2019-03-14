@@ -1,4 +1,4 @@
-package com.weicongli.demo.faketieba.module.main;
+package com.weicongli.demo.faketieba.module.main.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -6,7 +6,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
@@ -58,7 +57,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private AnimatorSet animatorSet;
     private OvershootInterpolator overshootInterpolator;
     private FastOutSlowInInterpolator fastOutSlowInInterpolator;
-    private String TAG = "MainActivity";
 
     @Override
     protected int setLayout() {
@@ -123,7 +121,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personFg).commit();
                 animationButton(4);
                 break;
-            //添加帖子界面
+            //弹出新建帖子工具栏
             case R.id.main_post_btn:
                 if (postState == 1) {
                     postState = 0;
@@ -131,6 +129,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     postOpenAnimate();
                 }
                 break;
+            //关闭新建帖子工具栏
             case R.id.main_post_container:
                 if (postState == 2) {
                     postState = 0;
@@ -143,6 +142,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.post_live_iv:
                 start(this, PostActivity.class);
                 postCloseAnimate();
+                animatorSet = null;
+                fastOutSlowInInterpolator = null;
+                overshootInterpolator = null;
                 break;
         }
     }
@@ -177,6 +179,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             animationDrawable.setOneShot(true);
             animationDrawable.start();
         }
+        animationDrawable = null;
     }
 
     /**
@@ -221,9 +224,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @param order
      */
     private void animatorPlayer(View view, float translationY, long delay, long duration, final int lastTime, boolean order) {
-        if (animatorSet != null) {
-            animatorSet = new AnimatorSet();
-        }
+        animatorSet = new AnimatorSet();
         ObjectAnimator animator2;
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "translationY", ViewUtils.dpToPixel(translationY)).setDuration(duration);
         if (order) {
@@ -271,6 +272,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(homeFg, barFg, messageFg, personFg, animationDrawable, animatorSet, overshootInterpolator, fastOutSlowInInterpolator);
+        animationDrawable = null;
+        animatorSet = null;
+        overshootInterpolator = null;
+        fastOutSlowInInterpolator = null;
+        homeFg = null;
+        personFg = null;
+        barFg = null;
+        messageFg = null;
+        setContentView(R.layout.view_null);
     }
 }

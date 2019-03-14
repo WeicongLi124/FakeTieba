@@ -1,4 +1,4 @@
-package com.weicongli.demo.faketieba.other.pagerAdapter;
+package com.weicongli.demo.faketieba.module.main.pagerAdapter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

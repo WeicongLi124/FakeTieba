@@ -20,7 +20,7 @@
             <!--app:tabSelectedTextColor="@android:color/black"-->
             <!--app:tabTextAppearance="@style/TabTextSize"-->
             <!--app:tabTextColor="@color/colorBarSearchText" />-->
-        <com.weicongli.demo.faketieba.other.slidingTab.SlidingTabLayout
+        <com.weicongli.demo.faketieba.view.slidingTab.SlidingTabLayout
             android:id="@+id/actionbar_tab"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

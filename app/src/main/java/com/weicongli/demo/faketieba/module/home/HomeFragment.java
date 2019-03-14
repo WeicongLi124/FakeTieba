@@ -14,7 +14,7 @@ import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.home.fragments.CenterFragment;
 import com.weicongli.demo.faketieba.module.home.fragments.FocusFragment;
 import com.weicongli.demo.faketieba.module.home.fragments.VideoFragment;
-import com.weicongli.demo.faketieba.other.slidingTab.SlidingTabLayout;
+import com.weicongli.demo.faketieba.view.slidingTab.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +96,5 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ObjectUtils.handGC(adapter, fragmentList, titleList, focusFragment, centerFragment, videoFragment);
     }
 }
