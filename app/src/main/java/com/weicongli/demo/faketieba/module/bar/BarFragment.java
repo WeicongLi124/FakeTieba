@@ -6,7 +6,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.demo.weicongli.library.base.BaseFragment;
-import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.adapter.BarListAdapter;
 import com.weicongli.demo.faketieba.module.bar.model.BarDataBean;
@@ -36,10 +35,10 @@ public class BarFragment extends BaseFragment {
 
     @Override
     protected void initParams(View view) {
-        actionBarTv = view.findViewById(R.id.actionbar_title);
-        actionBarIvL = view.findViewById(R.id.actionbar_left);
-        actionBarIvR1 = view.findViewById(R.id.actionbar_right1);
-        actionBarIvR2 = view.findViewById(R.id.actionbar_right2);
+        actionBarTv = view.findViewById(R.id.actionbar_title_tv);
+        actionBarIvL = view.findViewById(R.id.actionbar_left_iv);
+        actionBarIvR1 = view.findViewById(R.id.actionbar_right_iv1);
+        actionBarIvR2 = view.findViewById(R.id.actionbar_right_iv2);
         actionBarTv.setText("进吧");
         actionBarIvL.setVisibility(View.GONE);
         actionBarIvR1.setImageResource(R.drawable.top_checkin_selector);

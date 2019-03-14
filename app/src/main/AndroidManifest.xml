@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.main.activity.PostActivity">
+        <activity android:name=".module.main.activity.PostActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden">
             <intent-filter>
                 <!--<action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />-->

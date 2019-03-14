@@ -9,12 +9,11 @@ import android.widget.TextView;
 
 import com.demo.weicongli.library.adapter.PagerAdapter;
 import com.demo.weicongli.library.base.BaseFragment;
-import com.demo.weicongli.library.utils.ObjectUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.msg.fragments.ChatFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.MessageFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.NotifyFragment;
-import com.weicongli.demo.faketieba.view.slidingTab.SlidingTabLayout;
+import com.weicongli.demo.faketieba.other.slidingTab.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +47,10 @@ public class MsgFragment extends BaseFragment {
 
     @Override
     protected void initParams(View view) {
-        actionBarTv = view.findViewById(R.id.actionbar_title);
-        actionBarIvL = view.findViewById(R.id.actionbar_left);
-        actionBarIvR1 = view.findViewById(R.id.actionbar_right1);
-        actionBarIvR2 = view.findViewById(R.id.actionbar_right2);
+        actionBarTv = view.findViewById(R.id.actionbar_title_tv);
+        actionBarIvL = view.findViewById(R.id.actionbar_left_iv);
+        actionBarIvR1 = view.findViewById(R.id.actionbar_right_iv1);
+        actionBarIvR2 = view.findViewById(R.id.actionbar_right_iv2);
         slidingTabLayout = view.findViewById(R.id.actionbar_tab);
         viewPager = view.findViewById(R.id.msg_viewpager);
         actionBarTv.setVisibility(View.GONE);

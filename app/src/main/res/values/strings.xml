@@ -10,4 +10,7 @@
     <string name="post_type_live">直播</string>
     <string name="person_avatar_text">查看个人主页和编辑资料</string>
     <string name="msg_item_at">\u0040我的</string>
+    <string name="post_add_title">添加标题</string>
+    <string name="post_all_meet">所有人可见</string>
+    <string name="post_content_hint">来吧，尽情发挥吧...</string>
 </resources>

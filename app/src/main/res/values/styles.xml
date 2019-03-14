@@ -53,4 +53,13 @@
         <item name="android:windowExitAnimation">@anim/fb_top_close_anim</item>
     </style>
 
+    <style name="PostBottomImageStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">11dp</item>
+    </style>
+
 </resources>

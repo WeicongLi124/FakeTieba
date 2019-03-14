@@ -10,17 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp">
 
-        <!--<android.support.design.widget.TabLayout-->
-            <!--android:id="@+id/actionbar_tab"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--android:visibility="gone"-->
-            <!--app:tabIndicatorColor="@android:color/black"-->
-            <!--app:tabSelectedTextColor="@android:color/black"-->
-            <!--app:tabTextAppearance="@style/TabTextSize"-->
-            <!--app:tabTextColor="@color/colorBarSearchText" />-->
-        <com.weicongli.demo.faketieba.view.slidingTab.SlidingTabLayout
+        <com.weicongli.demo.faketieba.other.slidingTab.SlidingTabLayout
             android:id="@+id/actionbar_tab"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -28,7 +18,7 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/actionbar_title"
+            android:id="@+id/actionbar_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -37,10 +27,9 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/actionbar_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:id="@+id/actionbar_left_iv"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
             android:clickable="true"
             android:focusable="true"
             android:padding="11dp"
@@ -48,25 +37,35 @@
 
 
         <ImageView
-            android:id="@+id/actionbar_right2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/actionbar_right1"
+            android:id="@+id/actionbar_right_iv2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_toStartOf="@id/actionbar_right_iv1"
             android:clickable="true"
             android:focusable="true"
             android:padding="11dp"
             android:src="@drawable/top_store_selector" />
 
         <ImageView
-            android:id="@+id/actionbar_right1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/actionbar_right_iv1"
+            android:layout_width="55dp"
+            android:layout_height="45dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
             android:clickable="true"
             android:focusable="true"
             android:padding="11dp"
             android:src="@drawable/top_setting_selector" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/actionbar_right_tv"
+            android:textColor="@color/colorCardBtnTextUnSelected"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:text="发布"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <View

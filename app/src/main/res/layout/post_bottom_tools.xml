@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:weightSum="6">
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_express_selector" />
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_image_selector" />
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_voice_selector" />
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_topic_selector" />
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_vip_selector" />
+
+    <ImageView
+        style="@style/PostBottomImageStyle"
+        android:src="@drawable/post_bottom_more_selector" />
+</LinearLayout>
