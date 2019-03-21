@@ -135,7 +135,7 @@ public class CenterAdapter extends BaseAdapter {
         LinearLayout shareLl;
         LinearLayout chatLl;
         LinearLayout likeLl;
-        LinearLayout closeLl;
+        ImageView closeLl;
         TextView shareTv;
         TextView chatTv;
         TextView likeTv;

@@ -150,9 +150,7 @@ public class CenterFragment extends BaseFragment implements View.OnClickListener
         //判断屏幕高度与参照view的高度、参照物位置高度的差是否小于弹窗高度
         final boolean isShowOnTop = (screenHeight - viewLocal[1] - viewHeight * 2 < windowHeight);
         if (isShowOnTop) {
-
             popupWindow.setAnimationStyle(R.style.FbPopTopStyle);
-
             popBgLl.setBackgroundResource(R.drawable.bg_home_feedback_under);
             popupWindow.showAtLocation(touchView, Gravity.NO_GRAVITY, 0,
                     viewLocal[1] - windowHeight);

@@ -7,9 +7,9 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_above="@id/main_bottom_line"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_bottom_line" />
 
     <View
         android:id="@+id/main_bottom_line"
@@ -18,14 +18,13 @@
         android:layout_above="@id/main_bottom_ly"
         android:background="@color/colorBottomTabLine" />
 
-    <LinearLayout
-        android:id="@+id/main_bottom_ly"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
 
-        <include layout="@layout/main_bottom_tab" />
-    </LinearLayout>
     <include
-        layout="@layout/main_post_view"/>
+        android:id="@+id/main_bottom_ly"
+        layout="@layout/main_bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true" />
+
+    <include layout="@layout/main_post_view" />
 </RelativeLayout>

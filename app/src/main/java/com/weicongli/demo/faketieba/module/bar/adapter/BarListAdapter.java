@@ -98,18 +98,29 @@ public class BarListAdapter extends BaseAdapter {
                 break;
             case LIST_ITEM_LATELY_BAR:
                 //最近逛的吧
-                LatelyHolder latelyHolder;
+                final LatelyHolder latelyHolder;
                 if (view == null) {
                     latelyHolder = new LatelyHolder();
                     view = inflater.inflate(R.layout.bar_list_lately_bar_item, viewGroup, false);
-                    latelyHolder.latelyLl = view.findViewById(R.id.bar_list_lately_ll);
+                    latelyHolder.showIv = view.findViewById(R.id.lately_show_iv);
+                    latelyHolder.containerRl = view.findViewById(R.id.container_rl);
+                    latelyHolder.latelyLine = view.findViewById(R.id.lately_line);
                     view.setTag(latelyHolder);
                 } else {
                     latelyHolder = (LatelyHolder) view.getTag();
                 }
-                latelyHolder.latelyLl.setOnClickListener(new View.OnClickListener() {
+                latelyHolder.showIv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (latelyHolder.containerRl.isShown()) {
+                            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_hide_n);
+                            latelyHolder.containerRl.setVisibility(View.GONE);
+                            latelyHolder.latelyLine.setVisibility(View.GONE);
+                        } else {
+                            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_show_n);
+                            latelyHolder.containerRl.setVisibility(View.VISIBLE);
+                            latelyHolder.latelyLine.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
                 break;
@@ -180,28 +191,30 @@ public class BarListAdapter extends BaseAdapter {
     }
 
     class SearchHolder {
-        public LinearLayout searchLl;
+        LinearLayout searchLl;
     }
 
     class LatelyHolder {
-        public LinearLayout latelyLl;
+        ImageView showIv;
+        RelativeLayout containerRl;
+        View latelyLine;
     }
 
     class ViewHolder {
-        public LinearLayout viewLl;
+        LinearLayout viewLl;
     }
 
     class BarHolder {
-        public TextView nameTv1;
-        public ImageView levelIv1;
-        public ImageView signIv1;
-        public TextView nameTv2;
-        public ImageView levelIv2;
-        public ImageView signIv2;
-        public RelativeLayout rightRl;
+        TextView nameTv1;
+        ImageView levelIv1;
+        ImageView signIv1;
+        TextView nameTv2;
+        ImageView levelIv2;
+        ImageView signIv2;
+        RelativeLayout rightRl;
     }
 
     class AddMoreHolder {
-        public LinearLayout addMoreLl;
+        LinearLayout addMoreLl;
     }
 }

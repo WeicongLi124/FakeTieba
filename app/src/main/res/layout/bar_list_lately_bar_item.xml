@@ -21,6 +21,7 @@
             android:textSize="15sp" />
 
         <ImageView
+            android:id="@+id/lately_show_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -29,6 +30,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/container_rl"
         android:layout_width="match_parent"
         android:layout_height="92dp"
         android:layout_marginStart="15dp"
@@ -59,6 +61,7 @@
     </RelativeLayout>
 
     <View
+        android:id="@+id/lately_line"
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:background="@color/colorDivider" />
