@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.demo.weicongli.library.adapter.PagerAdapter;
 import com.demo.weicongli.library.base.BaseFragment;
 import com.weicongli.demo.faketieba.R;
+import com.weicongli.demo.faketieba.module.msg.activity.ContactActivity;
 import com.weicongli.demo.faketieba.module.msg.fragments.ChatFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.MessageFragment;
 import com.weicongli.demo.faketieba.module.msg.fragments.NotifyFragment;
@@ -63,7 +64,12 @@ public class MsgFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
-
+        actionBarIvR1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(getActivity(), ContactActivity.class);
+            }
+        });
     }
 
     private void initViewPager() {

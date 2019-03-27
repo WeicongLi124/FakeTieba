@@ -144,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="回复"
-                android:textColor="@color/card_btn_text_selector"
+                android:textColor="@color/card_btn_tv_selector"
                 android:textSize="13sp" />
         </LinearLayout>
     </RelativeLayout>

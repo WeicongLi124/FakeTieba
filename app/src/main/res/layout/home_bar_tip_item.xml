@@ -25,26 +25,23 @@
             android:layout_toEndOf="@id/focus_item_avatar_iv"
             android:orientation="vertical">
 
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/focus_item_bar_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="Summer Pockest"
+                android:textColor="@color/colorFeedbackBtn"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/focus_item_bar_name_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Summer Pockest"
-                    android:textColor="@color/colorFeedbackBtn"
-                    android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/focus_item_bar_name_tv"
+                android:text="吧"
+                android:textColor="@color/colorFeedbackBtn"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="吧"
-                    android:textColor="@color/colorFeedbackBtn"
-                    android:textSize="16sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/home_focus_timenname"
@@ -111,13 +108,11 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <include
+        layout="@layout/home_center_item_bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp">
-
-        <include layout="@layout/home_center_item_bottom" />
-    </LinearLayout>
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp" />
 
     <View
         android:layout_width="match_parent"
