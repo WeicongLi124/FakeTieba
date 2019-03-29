@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:background="@drawable/person_button_selector"
@@ -7,13 +8,16 @@
     android:focusable="true"
     android:orientation="horizontal">
 
+
     <ImageView
+        android:background="@drawable/contact_iv_shape"
         android:id="@+id/contact_avatar_iv"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_centerVertical="true"
         android:layout_marginStart="15dp"
         android:src="@drawable/avatar" />
+
 
     <TextView
         android:id="@+id/contact_name_tv"

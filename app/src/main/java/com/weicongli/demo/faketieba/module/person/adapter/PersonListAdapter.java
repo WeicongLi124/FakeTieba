@@ -79,11 +79,14 @@ public class PersonListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         PersonListBean bean = listBeanList.get(position);
+        AvatarHolder avatarHolder;
+        AvatarButtonHolder avatarButtonHolder;
+        AdHolder adHolder;
+        TitleHolder titleHolder;
         int viewType = getItemViewType(position);
         switch (viewType) {
             case LIST_ITEM_AVATAR:
                 //头像部分
-                AvatarHolder avatarHolder;
                 if (view == null) {
                     avatarHolder = new AvatarHolder();
                     view = inflater.inflate(R.layout.person_list_avatar_item, viewGroup, false);
@@ -98,7 +101,6 @@ public class PersonListAdapter extends BaseAdapter {
                 break;
             case LIST_ITEM_AVATAR_BUTTON:
                 //头像下的按钮
-                AvatarButtonHolder avatarButtonHolder;
                 if (view == null) {
                     avatarButtonHolder = new AvatarButtonHolder();
                     view = inflater.inflate(R.layout.person_list_avatar_button_item, viewGroup, false);
@@ -110,14 +112,10 @@ public class PersonListAdapter extends BaseAdapter {
                 } else {
                     avatarButtonHolder = (AvatarButtonHolder) view.getTag();
                 }
-                avatarButtonHolder.focus.setText(bean.getFocus());
-                avatarButtonHolder.fans.setText(bean.getFans());
-                avatarButtonHolder.focusBars.setText(bean.getFocusBars());
-                avatarButtonHolder.tips.setText(bean.getTips());
+                setAvatarItemData(avatarButtonHolder, bean);
                 break;
             case LIST_ITEM_AD:
                 //广告栏
-                AdHolder adHolder;
                 if (view == null) {
                     adHolder = new AdHolder();
                     view = inflater.inflate(R.layout.person_list_ad_item, viewGroup, false);
@@ -130,7 +128,6 @@ public class PersonListAdapter extends BaseAdapter {
                 break;
             case LIST_ITEM_TITLE:
                 //列表选项
-                TitleHolder titleHolder;
                 if (view == null) {
                     titleHolder = new TitleHolder();
                     view = inflater.inflate(R.layout.person_list_function_item, viewGroup, false);
@@ -143,16 +140,39 @@ public class PersonListAdapter extends BaseAdapter {
                 } else {
                     titleHolder = (TitleHolder) view.getTag();
                 }
-                if (bean.getTitle().equals("我的群组") || bean.getTitle().equals("蓝钻") || bean.getTitle().equals("直播")
-                        || bean.getTitle().equals("服务中心") || bean.getTitle().equals("更多")) {
-                    titleHolder.slimDivider.setVisibility(View.GONE);
-                    titleHolder.fatDivider.setVisibility(View.VISIBLE);
-                }
-                if (bean.getTitle().equals("我的礼物")) titleHolder.beanLl.setVisibility(View.VISIBLE);
-                titleHolder.title.setText(bean.getTitle());
-                titleHolder.image.setImageResource(bean.getImage());
+                setItemData(titleHolder, bean);
                 break;
         }
         return view;
+    }
+
+    /**
+     * 设置列为avatarButton的item数据
+     *
+     * @param avatarButtonHolder
+     * @param bean
+     */
+    private void setAvatarItemData(AvatarButtonHolder avatarButtonHolder, PersonListBean bean) {
+        avatarButtonHolder.focus.setText(bean.getFocus());
+        avatarButtonHolder.fans.setText(bean.getFans());
+        avatarButtonHolder.focusBars.setText(bean.getFocusBars());
+        avatarButtonHolder.tips.setText(bean.getTips());
+    }
+
+    /**
+     * 设置列表菜单item数据
+     *
+     * @param titleHolder
+     * @param bean
+     */
+    private void setItemData(TitleHolder titleHolder, PersonListBean bean) {
+        if (bean.getTitle().equals("我的群组") || bean.getTitle().equals("蓝钻") || bean.getTitle().equals("直播")
+                || bean.getTitle().equals("服务中心") || bean.getTitle().equals("更多")) {
+            titleHolder.slimDivider.setVisibility(View.GONE);
+            titleHolder.fatDivider.setVisibility(View.VISIBLE);
+        }
+        if (bean.getTitle().equals("我的礼物")) titleHolder.beanLl.setVisibility(View.VISIBLE);
+        titleHolder.title.setText(bean.getTitle());
+        titleHolder.image.setImageResource(bean.getImage());
     }
 }

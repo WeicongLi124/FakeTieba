@@ -11,6 +11,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.weicongli.demo.faketieba.R;
+import com.weicongli.demo.faketieba.module.bar.holder.AddMoreHolder;
+import com.weicongli.demo.faketieba.module.bar.holder.BarHolder;
+import com.weicongli.demo.faketieba.module.bar.holder.FocusBarHolder;
+import com.weicongli.demo.faketieba.module.bar.holder.LatelyHolder;
+import com.weicongli.demo.faketieba.module.bar.holder.SearchHolder;
 import com.weicongli.demo.faketieba.module.bar.model.BarDataBean;
 
 import java.util.List;
@@ -21,6 +26,7 @@ import java.util.List;
  * @email: 912220261@qq.com
  * @Function:
  */
+@SuppressWarnings("ALL")
 public class BarListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
@@ -74,14 +80,19 @@ public class BarListAdapter extends BaseAdapter {
         return 5;
     }
 
+    @SuppressWarnings("OverlyLongMethod")
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         BarDataBean bean = dataBeanList.get(position);
+        SearchHolder searchHolder;
+        final LatelyHolder latelyHolder;
+        FocusBarHolder viewHolder;
+        BarHolder barHolder;
+        AddMoreHolder moreHolder;
         int viewType = getItemViewType(position);
         switch (viewType) {
             case LIST_ITEM_SEARCH:
                 //搜索帖子
-                SearchHolder searchHolder;
                 if (view == null) {
                     searchHolder = new SearchHolder();
                     view = inflater.inflate(R.layout.bar_list_search_item, viewGroup, false);
@@ -90,15 +101,9 @@ public class BarListAdapter extends BaseAdapter {
                 } else {
                     searchHolder = (SearchHolder) view.getTag();
                 }
-                searchHolder.searchLl.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
                 break;
             case LIST_ITEM_LATELY_BAR:
                 //最近逛的吧
-                final LatelyHolder latelyHolder;
                 if (view == null) {
                     latelyHolder = new LatelyHolder();
                     view = inflater.inflate(R.layout.bar_list_lately_bar_item, viewGroup, false);
@@ -112,38 +117,23 @@ public class BarListAdapter extends BaseAdapter {
                 latelyHolder.showIv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (latelyHolder.containerRl.isShown()) {
-                            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_hide_n);
-                            latelyHolder.containerRl.setVisibility(View.GONE);
-                            latelyHolder.latelyLine.setVisibility(View.GONE);
-                        } else {
-                            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_show_n);
-                            latelyHolder.containerRl.setVisibility(View.VISIBLE);
-                            latelyHolder.latelyLine.setVisibility(View.VISIBLE);
-                        }
+                        showLatelyBars(latelyHolder);
                     }
                 });
                 break;
             case LIST_ITEM_VIEW:
                 //单View“我关注的吧”
-                ViewHolder viewHolder;
                 if (view == null) {
-                    viewHolder = new ViewHolder();
+                    viewHolder = new FocusBarHolder();
                     view = inflater.inflate(R.layout.bar_list_view_item, viewGroup, false);
                     viewHolder.viewLl = view.findViewById(R.id.bar_list_view_ll);
                     view.setTag(viewHolder);
                 } else {
-                    viewHolder = (ViewHolder) view.getTag();
+                    viewHolder = (FocusBarHolder) view.getTag();
                 }
-                viewHolder.viewLl.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
                 break;
             case LIST_ITEM_MY_BARS:
                 //我关注的贴吧
-                BarHolder barHolder;
                 if (view == null) {
                     barHolder = new BarHolder();
                     view = inflater.inflate(R.layout.bar_list_bar_item, viewGroup, false);
@@ -160,7 +150,8 @@ public class BarListAdapter extends BaseAdapter {
                 }
                 barHolder.nameTv1.setText(bean.getBarNameL());
                 barHolder.levelIv1.setImageResource(bean.getBarLevelL());
-                if (bean.isSignL()) barHolder.signIv1.setImageResource(R.drawable.icon_ba_sign_n);
+                if (bean.isSignL())
+                    barHolder.signIv1.setImageResource(R.drawable.icon_ba_sign_n);
                 if (bean.isHaveRight()) {
                     barHolder.rightRl.setVisibility(View.VISIBLE);
                     barHolder.nameTv2.setText(bean.getBarNameR());
@@ -171,7 +162,6 @@ public class BarListAdapter extends BaseAdapter {
                 break;
             case LIST_ITEM_ADD_MORE:
                 //探索更多有趣的吧
-                AddMoreHolder moreHolder;
                 if (view == null) {
                     moreHolder = new AddMoreHolder();
                     view = inflater.inflate(R.layout.bar_list_add_more_item, viewGroup, false);
@@ -180,41 +170,24 @@ public class BarListAdapter extends BaseAdapter {
                 } else {
                     moreHolder = (AddMoreHolder) view.getTag();
                 }
-                moreHolder.addMoreLl.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
                 break;
         }
         return view;
     }
 
-    class SearchHolder {
-        LinearLayout searchLl;
-    }
-
-    class LatelyHolder {
-        ImageView showIv;
-        RelativeLayout containerRl;
-        View latelyLine;
-    }
-
-    class ViewHolder {
-        LinearLayout viewLl;
-    }
-
-    class BarHolder {
-        TextView nameTv1;
-        ImageView levelIv1;
-        ImageView signIv1;
-        TextView nameTv2;
-        ImageView levelIv2;
-        ImageView signIv2;
-        RelativeLayout rightRl;
-    }
-
-    class AddMoreHolder {
-        LinearLayout addMoreLl;
+    /**
+     * 显示最近逛的吧
+     * @param latelyHolder
+     */
+    private void showLatelyBars(LatelyHolder latelyHolder) {
+        if (latelyHolder.containerRl.isShown()) {
+            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_hide_n);
+            latelyHolder.containerRl.setVisibility(View.GONE);
+            latelyHolder.latelyLine.setVisibility(View.GONE);
+        } else {
+            latelyHolder.showIv.setImageResource(R.drawable.icon_ba_show_n);
+            latelyHolder.containerRl.setVisibility(View.VISIBLE);
+            latelyHolder.latelyLine.setVisibility(View.VISIBLE);
+        }
     }
 }

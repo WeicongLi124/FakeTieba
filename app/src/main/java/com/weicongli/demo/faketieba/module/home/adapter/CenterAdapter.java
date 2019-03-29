@@ -79,7 +79,7 @@ public class CenterAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
         CenterViewHolder viewHolder;
-        UserTipItemBean itemBean = itemBeanList.get(position);
+        UserTipItemBean itemBean;
         if (view == null) {
             viewHolder = new CenterViewHolder();
             view = inflater.inflate(R.layout.home_user_tip_item, viewGroup, false);
@@ -105,25 +105,42 @@ public class CenterAdapter extends BaseAdapter {
         } else {
             viewHolder = (CenterViewHolder) view.getTag();
         }
+        itemBean = itemBeanList.get(position);
+        setData(viewHolder, itemBean, position);
+        return view;
+    }
+
+    /**
+     * 为item设置数据
+     *
+     * @param viewHolder
+     * @param itemBean
+     * @param position
+     */
+    private void setData(CenterViewHolder viewHolder, UserTipItemBean itemBean, int position) {
         Glide.with(context).load(itemBean.getAvatar()).apply(new RequestOptions().circleCrop()).into(viewHolder.avatarIv);
         viewHolder.nameTv.setText(itemBean.getName());
         viewHolder.barNameTv.setText(itemBean.getBarName());
         viewHolder.timeTv.setText(itemBean.getTime());
         viewHolder.contentTv.setText(itemBean.getContent());
         //设置分享、讨论与点赞数
-        if (itemBean.getShareNum() == 0) viewHolder.shareTv.setText("分享");
-        else viewHolder.shareTv.setText(itemBean.getShareNum() + "");
+        if (itemBean.getShareNum() == 0) {
+            viewHolder.shareTv.setText("分享");
+        } else {
+            viewHolder.shareTv.setText(itemBean.getShareNum() + "");
+        }
         viewHolder.chatTv.setText(itemBean.getChatNum() + "");
         viewHolder.likeTv.setText(itemBean.getLikeNum() + "");
         //设置该贴是否已点赞
-        if (itemBean.isHadLike())
+        if (itemBean.isHadLike()) {
             viewHolder.likeIv.setImageResource(R.drawable.icon_home_card_like_s);
-        else viewHolder.likeIv.setImageResource(R.drawable.home_card_like_selector);
+        } else {
+            viewHolder.likeIv.setImageResource(R.drawable.home_card_like_selector);
+        }
         viewHolder.shareLl.setTag(R.id.card_item_share_ll, position);
         viewHolder.chatLl.setTag(R.id.card_item_chat_ll, position);
         viewHolder.likeLl.setTag(R.id.card_item_like_ll, position);
         viewHolder.closeLl.setTag(R.id.center_item_close_ll, position);
-        return view;
     }
 
     private class CenterViewHolder {

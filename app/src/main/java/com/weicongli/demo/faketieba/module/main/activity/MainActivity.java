@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.demo.weicongli.library.base.BaseActivity;
-import com.demo.weicongli.library.utils.ObjectUtils;
 import com.demo.weicongli.library.utils.ViewUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.bar.BarFragment;
@@ -21,6 +20,7 @@ import com.weicongli.demo.faketieba.module.home.HomeFragment;
 import com.weicongli.demo.faketieba.module.msg.MsgFragment;
 import com.weicongli.demo.faketieba.module.person.PersonFragment;
 
+@SuppressWarnings("ALL")
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 底部导航栏
@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private HomeFragment homeFg;
     private BarFragment barFg;
-    private MsgFragment messageFg;
+    private MsgFragment msgFg;
     private PersonFragment personFg;
 
     /**
@@ -57,6 +57,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private AnimatorSet animatorSet;
     private OvershootInterpolator overshootInterpolator;
     private FastOutSlowInInterpolator fastOutSlowInInterpolator;
+    /**
+     * 常量
+     */
+    private static final int TYPE_HOME = 1;
+    private static final int TYPE_BAR = 2;
+    private static final int TYPE_MSG = 3;
+    private static final int TYPE_PERSON = 4;
 
     @Override
     protected int setLayout() {
@@ -97,29 +104,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.post_live_iv).setOnClickListener(this);
     }
 
+    @SuppressWarnings("OverlyLongMethod")
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             //底部导航栏
             case R.id.main_home_ll:
-                if (homeFg == null) homeFg = new HomeFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFg).commit();
-                animationButton(1);
+                switchFragment(TYPE_HOME);
                 break;
             case R.id.main_enterform_ll:
-                if (barFg == null) barFg = new BarFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, barFg).commit();
-                animationButton(2);
+                switchFragment(TYPE_BAR);
                 break;
             case R.id.main_message_ll:
-                if (messageFg == null) messageFg = new MsgFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, messageFg).commit();
-                animationButton(3);
+                switchFragment(TYPE_MSG);
                 break;
             case R.id.main_person_ll:
-                if (personFg == null) personFg = new PersonFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personFg).commit();
-                animationButton(4);
+                switchFragment(TYPE_PERSON);
                 break;
             //弹出新建帖子工具栏
             case R.id.main_post_btn:
@@ -142,11 +142,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.post_live_iv:
                 start(this, PostActivity.class);
                 postCloseAnimate();
-                animatorSet = null;
-                fastOutSlowInInterpolator = null;
-                overshootInterpolator = null;
                 break;
         }
+    }
+
+    /**
+     * 切换fragment
+     *
+     * @param type
+     */
+    private void switchFragment(int type) {
+        switch (type) {
+            case TYPE_HOME:
+                if (homeFg == null)
+                    homeFg = new HomeFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFg).commit();
+                break;
+            case TYPE_BAR:
+                if (barFg == null)
+                    barFg = new BarFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, barFg).commit();
+                break;
+            case TYPE_MSG:
+                if (msgFg == null)
+                    msgFg = new MsgFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, msgFg).commit();
+                break;
+            case TYPE_PERSON:
+                if (personFg == null)
+                    personFg = new PersonFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, personFg).commit();
+                break;
+        }
+        animationButton(type);
     }
 
     /**
@@ -279,7 +307,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         homeFg = null;
         personFg = null;
         barFg = null;
-        messageFg = null;
+        msgFg = null;
         setContentView(R.layout.view_null);
     }
 }

@@ -1,6 +1,7 @@
 package com.weicongli.demo.faketieba.module.msg.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.request.RequestOptions;
+import com.demo.weicongli.library.utils.ViewUtils;
 import com.weicongli.demo.faketieba.R;
 import com.weicongli.demo.faketieba.module.msg.model.ContactBean;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 /**
  * @author: WeicongLi
@@ -20,11 +28,14 @@ import java.util.List;
  * @Function:
  */
 public class ContactAdapter extends BaseAdapter {
+    private Context context;
     private LayoutInflater inflater;
     private List<ContactBean> contactBeanList;
+    private RequestOptions options;
 
     public ContactAdapter(Context context, List<ContactBean> contactBeanList) {
         this.contactBeanList = contactBeanList;
+        this.context = context;
         inflater = LayoutInflater.from(context);
     }
 
@@ -48,6 +59,9 @@ public class ContactAdapter extends BaseAdapter {
         ContactHolder holder;
         if (convertView == null) {
             holder = new ContactHolder();
+            options = RequestOptions.bitmapTransform(new MultiTransformation<>(
+                    new CenterCrop(),
+                    new RoundedCornersTransformation((int) ViewUtils.dpToPixel(3), 3, RoundedCornersTransformation.CornerType.ALL)));
             convertView = inflater.inflate(R.layout.msg_contact_item, parent, false);
             holder.avatarIv = convertView.findViewById(R.id.contact_avatar_iv);
             holder.nameTv = convertView.findViewById(R.id.contact_name_tv);
@@ -57,7 +71,7 @@ public class ContactAdapter extends BaseAdapter {
         }
         ContactBean bean = contactBeanList.get(position);
         holder.nameTv.setText(bean.getName());
-        holder.avatarIv.setImageResource(bean.getAvatar());
+        Glide.with(context).load(bean.getAvatar()).apply(options).into(holder.avatarIv);
         return convertView;
     }
 

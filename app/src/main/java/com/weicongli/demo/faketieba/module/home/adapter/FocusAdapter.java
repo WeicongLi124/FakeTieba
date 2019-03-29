@@ -79,7 +79,7 @@ public class FocusAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         CenterViewHolder viewHolder;
-        BarTipItemBean itemBean = itemBeanList.get(position);
+        BarTipItemBean itemBean;
         if (convertView == null) {
             viewHolder = new CenterViewHolder();
             convertView = inflater.inflate(R.layout.home_bar_tip_item, parent, false);
@@ -103,6 +103,19 @@ public class FocusAdapter extends BaseAdapter {
         } else {
             viewHolder = (CenterViewHolder) convertView.getTag();
         }
+        itemBean = itemBeanList.get(position);
+        setData(viewHolder, itemBean, position);
+        return convertView;
+    }
+
+    /**
+     * 为item设置数据
+     *
+     * @param viewHolder
+     * @param itemBean
+     * @param position
+     */
+    private void setData(CenterViewHolder viewHolder, BarTipItemBean itemBean, int position) {
         Glide.with(context).load(itemBean.getAvatar()).apply(new RequestOptions().circleCrop()).into(viewHolder.avatarIv);
         viewHolder.nameTv.setText(itemBean.getName());
         viewHolder.userNameTv.setText(itemBean.getUserName());
@@ -120,7 +133,6 @@ public class FocusAdapter extends BaseAdapter {
         viewHolder.shareLl.setTag(R.id.card_item_share_ll, position);
         viewHolder.chatLl.setTag(R.id.card_item_chat_ll, position);
         viewHolder.likeLl.setTag(R.id.card_item_like_ll, position);
-        return convertView;
     }
 
     private class CenterViewHolder {

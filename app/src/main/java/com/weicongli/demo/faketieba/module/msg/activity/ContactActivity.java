@@ -65,4 +65,10 @@ public class ContactActivity extends BaseActivity {
         contactBeanList.add(new ContactBean(R.drawable.sp, "Summer"));
         contactBeanList.add(new ContactBean(R.drawable.game, "游戏玩家"));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        setContentView(R.layout.view_null);
+    }
 }
