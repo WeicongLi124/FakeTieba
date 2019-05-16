@@ -5,15 +5,20 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/action_bar"
-        layout="@layout/main_actionbar" />
+    <LinearLayout
+        android:id="@+id/action_bar_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/main_actionbar" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/edt_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/action_bar"
+        android:layout_below="@id/action_bar_ll"
         android:orientation="vertical">
 
         <EditText

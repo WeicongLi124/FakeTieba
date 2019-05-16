@@ -1,6 +1,8 @@
 package com.weicongli.demo.faketieba.module.bar;
 
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;

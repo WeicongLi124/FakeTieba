@@ -191,23 +191,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             messageImg.setImageResource(R.drawable.bottom_tab_message_anim);
             personImg.setImageResource(R.drawable.bottom_tab_person_anim);
             switch (switchTab) {
-                case 1:
+                case TYPE_HOME:
                     animationDrawable = (AnimationDrawable) homeImg.getDrawable();
                     break;
-                case 2:
+                case TYPE_BAR:
                     animationDrawable = (AnimationDrawable) enterformImg.getDrawable();
                     break;
-                case 3:
+                case TYPE_MSG:
                     animationDrawable = (AnimationDrawable) messageImg.getDrawable();
                     break;
-                case 4:
+                case TYPE_PERSON:
                     animationDrawable = (AnimationDrawable) personImg.getDrawable();
                     break;
             }
             animationDrawable.setOneShot(true);
             animationDrawable.start();
         }
-        animationDrawable = null;
     }
 
     /**
@@ -253,8 +252,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private void animatorPlayer(View view, float translationY, long delay, long duration, final int lastTime, boolean order) {
         animatorSet = new AnimatorSet();
-        ObjectAnimator animator2;
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(view, "translationY", ViewUtils.dpToPixel(translationY)).setDuration(duration);
+        ObjectAnimator animator2;
         if (order) {
             animator2 = ObjectAnimator.ofFloat(view, "alpha", 0, 1).setDuration(1000);
             if (overshootInterpolator == null) {
@@ -300,14 +299,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        animationDrawable = null;
-        animatorSet = null;
-        overshootInterpolator = null;
-        fastOutSlowInInterpolator = null;
-        homeFg = null;
-        personFg = null;
-        barFg = null;
-        msgFg = null;
+        animatorSet.addListener(null);
         setContentView(R.layout.view_null);
     }
 }
